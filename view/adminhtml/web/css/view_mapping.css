@@ -1,0 +1,15 @@
+.store-to-country-table, .currency-mapping-table{
+	width: 100%;
+	text-align: left;
+}
+.store-to-country-table td, .store-to-country-table th,
+.currency-mapping-table td, .currency-mapping-table th {
+    border: 2px solid #363030;
+    padding: 5px;
+}
+.currency-mapping, .instructions {
+	margin-top: 25px;
+}
+.instructions ol{
+	padding-left: 25px;
+}

@@ -1,0 +1,30 @@
+<?php
+/**
+ * Geoip template for separate item
+ *
+ */
+
+/**
+ * @var $this Excellence\Geoip\Block\View
+ * @see Excellence\Geoip\Block\View
+ */
+?>
+<?php $_geoipItem = $this->getGeoip(); ?>
+    <div class="geoip_item_subtitle">
+        <?php echo $this->formatDate($_geoipItem->getPublishedAt()) ?> |
+        <?php echo $this->escapeHtml($_geoipItem->getAuthor()) ?>
+    </div>
+
+<div class="geoip_item_view">
+    <?php if ($imageUrl = $this->getImageUrl($_geoipItem, 400)): ?>
+       <p><img src="<?php echo $imageUrl ?>" alt="<?php echo $this->escapeHtml($_geoipItem->getTitle()) ?>" /></p>
+    <?php endif; ?>
+
+    <div class="geoip_item_content"><?php echo $_geoipItem->getContent() ?></div>
+
+    <div class="pager">
+        <a href="<?php echo $this->getBackUrl() ?>">
+            <?php echo __('Return to list') ?>
+        </a>
+    </div>
+</div>

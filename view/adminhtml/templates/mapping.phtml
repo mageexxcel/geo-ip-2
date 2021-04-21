@@ -1,0 +1,46 @@
+
+<!-- Showing Mappping in Tabular Format -->
+<div class="store-to-country">
+	<h2><?php echo __('Store to Country Mapping') ?></h2>
+	<table class="store-to-country-table">
+		<thead>
+			<tr>
+				<th><?php echo __('Store View'); ?></th>
+				<th><?php echo __('Selected Countries'); ?></th>
+				<th><?php echo __('Allowed Currencies'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+				echo $block->getCountryTableData();
+			?>
+		</tbody>
+	</table>
+</div>
+
+<div class="currency-mapping">
+	<h2><?php echo __('Currency Mappping') ?></h2>
+	<table class="currency-mapping-table">
+		<thead>
+			<tr>
+				<th><?php echo __('Store View'); ?></th>
+				<th><?php echo __('Selected Countries'); ?></th>
+				<th><?php echo __('Mapped Currency'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+				echo $block->getCurrrencyMappingTableData();
+			?>
+		</tbody>
+	</table>
+</div>
+<div class="instructions">
+	<h1><?php echo __('Notes:') ?></h1>
+	<h3><?php echo __('Currency Mappping') ?></h3>
+	<ol>
+		<li><?php echo __("Select the countries which are mapped for particular store."); ?></li>
+		<li><?php echo __("Selected any one of the allowed currency for particular store"); ?></li>
+		<li><?php echo __("For more instructions, visit "); ?><a href="http://wiki.xmagestore.com/" target="_blank"><?php echo __('Wiki'); ?></a></li>
+	</ol>
+</div>

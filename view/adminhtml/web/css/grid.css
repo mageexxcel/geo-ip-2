@@ -1,0 +1,6 @@
+th.col-geoip_id{
+	width: 50px;
+}
+th.col-currency_code, th.col-country_codes{
+	width: 350px;
+}

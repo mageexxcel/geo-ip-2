@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Excellence\Geoip\Block\Adminhtml\Geoip\Edit" name="geoip_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Excellence\Geoip\Block\Adminhtml\Geoip\Edit\Tabs" name="geoip_edit_tabs">
+                <block class="Excellence\Geoip\Block\Adminhtml\Geoip\Edit\Tab\Main" name="geoip_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">geoip_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
