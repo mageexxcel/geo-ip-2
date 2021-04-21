@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Excellence_Geoip::geoip" title="GeoIP" module="Excellence_Geoip" sortOrder="20" parent="Excellence_Base::base" resource="Excellence_Base::base" />
+        <add id="Excellence_Geoip::geoip_manage" title="Currency Mapping" module="Excellence_Geoip" sortOrder="20" parent="Excellence_Geoip::geoip" action="geoip/index/" resource="Excellence_Geoip::manage"/>
+        <add id="Excellence_Geoip::geoip_manage_config" title="GeoIP Configuration" module="Excellence_Geoip" sortOrder="10" parent="Excellence_Geoip::geoip" action="adminhtml/system_config/edit/section/geoip" resource="Excellence_Geoip::manage"/>
+        <add id="Excellence_Geoip::geoip_view_mapping" title="View Current Mapping" module="Excellence_Geoip" sortOrder="30" parent="Excellence_Geoip::geoip" action="geoip/view/mapping" resource="Excellence_Geoip::manage"/>
+    </menu>
+</config>

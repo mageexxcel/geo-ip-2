@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="geoip" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>GeoIP</label>
+            <tab>excellence</tab>
+            <resource>Excellence_Geoip::config_geoip</resource>
+            <group id="basic_setting" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>GeoIP Basic Settings</label>
+                <attribute type="expanded">1</attribute>
+
+                <field id="version" type="text" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Excellence\Geoip\Block\Adminhtml\System\Config\Form\Version</frontend_model>
+                </field>
+
+                <field id="enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable GeoIP Store Switcher</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="advance_settings" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>GeoIP Advance Settings</label>
+                <attribute type="expanded">1</attribute>
+
+                <field id="apply_redirect" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Apply Redirect To</label>
+                    <source_model>Excellence\Geoip\Model\Adminhtml\Config\Source\RedirectRule</source_model>
+                </field>
+                <field id="accepted_urls" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>URLs (To be Redirected)</label>
+                    <depends>
+                        <field id="*/*/apply_redirect">2</field>
+                    </depends>
+                    <comment><![CDATA[Please specify URLs (e.g. http://yourstore.com/customer-service). Each URL on a separate line.]]></comment>
+                </field>
+                <field id="excepted_urls" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>URLs (To be Excepted)</label>
+                    <depends>
+                        <field id="*/*/apply_redirect">3</field>
+                    </depends>
+                    <comment><![CDATA[Please specify URLs (e.g. http://yourstore.com/customer-service). Each URL on a separate line.]]></comment>
+                </field>
+                <field id="restricted_ips" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Restriction by IP</label>
+                    <comment><![CDATA[Please specify IPs to be restricted (e.g. 107.170.186.79). Each IP on a separate line. Store will not be automatically switched on these IPs.]]></comment>
+                </field>
+                <field id="geoip_first_visit" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Redirect for All Visits</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<strong style="color:#FF0000">Warning:&nbsp;&nbsp;</strong>If selected 'Yes', then user will not be able to change store.]]></comment>
+                </field>
+            </group>
+
+            <group id="country_mapping" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>GeoIP Country to Store Mapping</label>
+                <attribute type="expanded">1</attribute>
+
+                <field id="version" type="text" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Excellence\Geoip\Block\Adminhtml\System\Config\Form\SelectedCountries</frontend_model>
+                </field>
+
+                <field id="selected_countries" translate="label" type="multiselect" sortOrder="20" showInDefault="0" showInWebsite="1" showInStore="1">
+                    <label>Selected Country(s)</label>
+                    <source_model>Excellence\Geoip\Model\Adminhtml\Config\Source\CountryList</source_model>
+                </field>
+               
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,26 @@
+<?php $_geoip = $this->getCollection(); ?>
+<?php if ($_geoip->getSize()): ?>
+<div class="geoip_list_view">
+    <?php foreach ($_geoip as $geoipItem): ?>
+        <div id="item_<?php echo $geoipItem->getId() ?>" class="geoip_list_item">
+            <h2>
+                <a href="<?php echo $this->getItemUrl($geoipItem) ?>">
+                    <?php echo $this->escapeHtml($geoipItem->getTitle()) ?>
+                </a>
+            </h2>
+
+            <div class="geoip_item_subtitle">
+                <?php echo $this->formatDate($geoipItem->getPublishedAt()) ?> |
+                <?php echo $this->escapeHtml($geoipItem->getAuthor()) ?>
+            </div>
+
+            <?php if ($imageUrl = $this->getImageUrl($geoipItem, 100)): ?>
+               <p><img src="<?php echo $imageUrl ?>" alt="<?php echo $this->escapeHtml($geoipItem->getTitle()); ?>" /></p>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php echo $this->getPager() ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('You have no Geoip.'); ?></span></div>
+<?php endif ?>
